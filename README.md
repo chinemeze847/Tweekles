@@ -29,7 +29,7 @@ Data added by the backend service:
 * show all the details as in the "list post", but the full message
 * additionally has a like or unlike button, depending on whether the user has already liked the post
 
-** Like a Post**
+**Like a Post**
 
 * users can't like their own Posts
 * users can only like a Post once
@@ -39,7 +39,7 @@ Data added by the backend service:
 * timestamp
 
 
-** Unlike a Post**
+**Unlike a Post**
 
 * users can only unlike a Post they have liked before (automatically excludes own Posts)
 
