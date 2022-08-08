@@ -21,7 +21,7 @@ Data added by the backend service:
   * author, message (shortened to 100 characters), age of the post in days and hours, number of likes
 * no pagination for now, just limit to 15? posts
   
-**Show post details**
+**Show post details (by PostID)**
 
 * show all the details as in the "list post", but the full message
 * additionally has a like or unlike button, depending on whether the user has already liked the post
