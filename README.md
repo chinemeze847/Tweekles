@@ -13,7 +13,7 @@ Data supplied by the customer:
 * message (limited to 500 characters)
 
 Data added by the backend service:
-* ID (could be numeric, but a UUID is recommended)
+* ID (could be numeric, but some unique ID like a UUID is recommended)
 * Author (UserName)
 * postedAt (timestamp)
 
