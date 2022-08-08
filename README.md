@@ -46,3 +46,7 @@ Data added by the backend service:
 * PostID
 * UserName
 * timestamp
+
+**Add a comment to a post**
+
+* this is optional, we will define it if we get that far
