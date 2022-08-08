@@ -1,7 +1,9 @@
 # Africa-Teambox-Model
 This is a private repository for the africa teambox model
 
-Our sample application if named Tweekles - it is sort of a mini Twitter clone with not much functionality.
+## Our sample application if named Tweekles - it is sort of a mini Twitter clone with not much functionality.
+
+Miro board: https://miro.com/app/board/uXjVOg1foJ8=/
 
 The features / use-cases it should support (in the given order) are as follows:
 
