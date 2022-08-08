@@ -14,16 +14,35 @@ Data supplied by the customer:
 
 Data added by the backend service:
 * ID (could be numeric, but a UUID is recommended)
-* author (UserName)
+* Author (UserName)
 * postedAt (timestamp)
 
 **List Posts**
 
 * list an overview of all posts, showing:
   * author, message (shortened to 100 characters), age of the post in days and hours, number of likes
+* sort by timestamp (newest first)
 * no pagination for now, just limit to 15? posts
   
 **Show post details (by PostID)**
 
 * show all the details as in the "list post", but the full message
 * additionally has a like or unlike button, depending on whether the user has already liked the post
+
+** Like a Post**
+
+* users can't like their own Posts
+* users can only like a Post once
+
+* PostID
+* UserName
+* timestamp
+
+
+** Unlike a Post**
+
+* users can only unlike a Post they have liked before (automatically excludes own Posts)
+
+* PostID
+* UserName
+* timestamp
