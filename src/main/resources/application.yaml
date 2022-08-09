@@ -3,11 +3,11 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5432/tweekles
-    username: foo
-    password: bar
+    url: jdbc:postgresql://localhost:5432/tweekledb
+    username: postgres
+    password: 25847622
     driverClassName: org.postgresql.Driver
   sql:
     init:

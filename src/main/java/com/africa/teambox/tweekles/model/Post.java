@@ -31,6 +31,6 @@ public class Post {
     @Size(max = 500)
     private String message;
 
-    @OneToMany(mappedBy = ("post"))
+    @OneToMany()
     private List<Comment> comments;
 }
