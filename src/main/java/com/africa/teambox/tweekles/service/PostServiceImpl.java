@@ -6,6 +6,10 @@ import com.africa.teambox.tweekles.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 
 @RequiredArgsConstructor
 @Service
@@ -14,9 +18,17 @@ public class PostServiceImpl implements PostService {
     @Override
     public void createPost(PostRequestDto request) {
         Post post = new Post();
-        post.setUsername(request.getUserName());
+        post.setUsername(request.getUsername());
         post.setMessage(request.getMessage());
         postRepository.save(post);
+    }
+    @Override
+    public List<Post> getAllPost() {
+        return postRepository.findAll();
+    }
 
+    @Override
+    public Optional<Post> getPostById(UUID id) {
+        return postRepository.findById(id);
     }
 }

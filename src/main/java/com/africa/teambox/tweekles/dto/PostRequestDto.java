@@ -9,6 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class PostRequestDto {
 
-    private String userName;
+    private String username;
     private String message;
 }
