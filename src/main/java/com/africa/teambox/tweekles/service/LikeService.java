@@ -1,8 +1,9 @@
 package com.africa.teambox.tweekles.service;
 
 import com.africa.teambox.tweekles.dto.LikeRequestDto;
+import com.africa.teambox.tweekles.model.Like;
 
 public interface LikeService {
 
-    void likePost(String postId, LikeRequestDto request);
+    Like likePost(String postId, LikeRequestDto request);
 }

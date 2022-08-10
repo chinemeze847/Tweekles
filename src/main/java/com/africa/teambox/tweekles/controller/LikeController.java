@@ -2,8 +2,11 @@ package com.africa.teambox.tweekles.controller;
 
 
 import com.africa.teambox.tweekles.dto.LikeRequestDto;
+import com.africa.teambox.tweekles.model.Like;
 import com.africa.teambox.tweekles.service.LikeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,8 +18,8 @@ public class LikeController {
     //unlike
     private final LikeService likeService;
     @PostMapping("/like/{postId}")
-    public void likePost(@PathVariable String postId, @RequestBody LikeRequestDto request){
-        likeService.likePost(postId, request);
+    public ResponseEntity<Like> likePost(@PathVariable String postId, @RequestBody LikeRequestDto request){
+        return new ResponseEntity<Like>(likeService.likePost(postId, request), HttpStatus.CREATED);
     }
 
 }
