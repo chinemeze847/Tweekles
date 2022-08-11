@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,7 +21,7 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("/posts")
-    public ResponseEntity<?> createPost(@RequestBody PostRequestDto request){
+    public ResponseEntity<?> createPost(@RequestBody @Valid PostRequestDto request){
         return new ResponseEntity<>(postService.createPost(request), HttpStatus.CREATED);
     }
     @GetMapping("/posts")

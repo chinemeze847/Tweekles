@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -28,7 +29,7 @@ public class Post {
     @Column(name = "timestamp", columnDefinition= "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime timestamp;
 
-    @Size(max = 500)
+    @Size(max = 500, message = "Character literals should not be more than 500")
     private String message;
 
     @OneToMany()

@@ -7,10 +7,8 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/tweekledb
     username: postgres
-    password: root
+    password: postgres
     driverClassName: org.postgresql.Driver
   sql:
     init:
       platform: postgres
-server:
-  port: 8081
