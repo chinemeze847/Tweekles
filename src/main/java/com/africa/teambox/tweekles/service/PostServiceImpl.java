@@ -16,11 +16,11 @@ import java.util.UUID;
 public class PostServiceImpl implements PostService {
    private final PostRepository postRepository;
     @Override
-    public void createPost(PostRequestDto request) {
+    public Post createPost(PostRequestDto request) {
         Post post = new Post();
         post.setUsername(request.getUsername());
         post.setMessage(request.getMessage());
-        postRepository.save(post);
+        return postRepository.save(post);
     }
     @Override
     public List<Post> getAllPost() {
