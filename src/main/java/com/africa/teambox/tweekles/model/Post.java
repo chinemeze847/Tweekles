@@ -2,13 +2,11 @@ package com.africa.teambox.tweekles.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +25,7 @@ public class Post {
     private String username;
 
     @CreationTimestamp
+    @Column(name = "timestamp", columnDefinition= "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime timestamp;
 
     @Size(max = 500)

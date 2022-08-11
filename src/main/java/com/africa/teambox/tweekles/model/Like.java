@@ -28,6 +28,7 @@ public class Like {
     private String username;
 
     @CreationTimestamp
+    @Column(name = "timestamp", columnDefinition= "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime timestamp;
 
 }

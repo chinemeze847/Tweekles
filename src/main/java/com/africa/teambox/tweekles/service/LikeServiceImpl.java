@@ -45,4 +45,9 @@ public class LikeServiceImpl implements LikeService{
             likeRepository.delete(like);
         }
     }
+
+    @Override
+    public Integer getPostLikesCount(String postId) {
+       return likeRepository.countByPostId(UUID.fromString(postId));
+    }
 }
