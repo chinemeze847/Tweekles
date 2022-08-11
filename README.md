@@ -49,4 +49,5 @@ Data added by the backend service:
 
 **Add a comment to a post**
 
-* this is optional, we will define it if we get that far
+* no hierarchy, so you can not comment a comment but only comment a post
+* other than with Likes, the author of a Post can also comment it

@@ -11,6 +11,7 @@ import org.hibernate.annotations.NotFound;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,8 +32,22 @@ public class LikeServiceImpl implements LikeService{
        Like like = new Like();
 
        like.setUsername(request.getUsername());
-       like.setIsLiked(true);
        like.setPost(post);
         return likeRepository.save(like);
+    }
+
+    @Override
+    public void unlikePost(String likeId, LikeRequestDto request) {
+        Like like = likeRepository.findById(UUID.fromString(likeId))
+                .orElseThrow(() -> new NotFoundException("Id not found"));
+
+        if (like.getUsername().equals(request.getUsername())){
+            likeRepository.delete(like);
+        }
+    }
+
+    @Override
+    public Integer getPostLikesCount(String postId) {
+       return likeRepository.countByPostId(UUID.fromString(postId));
     }
 }
