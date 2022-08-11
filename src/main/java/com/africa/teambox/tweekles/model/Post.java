@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,7 +27,7 @@ public class Post {
     private String username;
 
     @CreationTimestamp
-    private LocalDateTime timestamp;
+    private ZonedDateTime timestamp;
 
     @Size(max = 500)
     private String message;

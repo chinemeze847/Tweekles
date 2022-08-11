@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 
@@ -26,9 +27,7 @@ public class Like {
 
     private String username;
 
-    private Boolean isLiked;
-
     @CreationTimestamp
-    private LocalDateTime timestamp;
+    private ZonedDateTime timestamp;
 
 }

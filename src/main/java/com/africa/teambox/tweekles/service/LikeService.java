@@ -6,4 +6,5 @@ import com.africa.teambox.tweekles.model.Like;
 public interface LikeService {
 
     Like likePost(String postId, LikeRequestDto request);
+    void unlikePost(String likeId, LikeRequestDto request);
 }
