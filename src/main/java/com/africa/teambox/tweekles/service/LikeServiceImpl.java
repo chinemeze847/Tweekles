@@ -1,6 +1,7 @@
 package com.africa.teambox.tweekles.service;
 
 import com.africa.teambox.tweekles.dto.LikeRequestDto;
+import com.africa.teambox.tweekles.exception.ForbiddenException;
 import com.africa.teambox.tweekles.exception.NotFoundException;
 import com.africa.teambox.tweekles.model.Like;
 import com.africa.teambox.tweekles.model.Post;
@@ -29,10 +30,12 @@ public class LikeServiceImpl implements LikeService{
                 .orElseThrow(() -> new NotFoundException("Id not found"));
 
 
-       Like like = new Like();
-
-       like.setUsername(request.getUsername());
-       like.setPost(post);
+        if (post.getUsername().equals(request.getUsername())) {
+           throw new ForbiddenException("You cannot like your own post");
+        }
+        Like like = new Like();
+        like.setUsername(request.getUsername());
+        like.setPost(post);
         return likeRepository.save(like);
     }
 
@@ -44,6 +47,7 @@ public class LikeServiceImpl implements LikeService{
         if (like.getUsername().equals(request.getUsername())){
             likeRepository.delete(like);
         }
+
     }
 
     @Override

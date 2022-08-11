@@ -15,4 +15,10 @@ public class ApplicationHandlerException extends ResponseEntityExceptionHandler 
         return new ResponseEntity<>(error, error.getHttpStatus());
     }
 
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ApiError> handleBadRequestException(ForbiddenException e) {
+        ApiError error = new ApiError(HttpStatus.FORBIDDEN, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getHttpStatus());
+    }
+
 }
