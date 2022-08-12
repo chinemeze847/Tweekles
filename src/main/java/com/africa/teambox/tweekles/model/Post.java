@@ -30,7 +30,6 @@ public class Post {
     private ZonedDateTime timestamp;
 
     @Column(name = "message", length = 500)
-//    @Size(max = 500, message = "Character literals should not be more than 500")
     private String message;
 
     @OneToMany()
