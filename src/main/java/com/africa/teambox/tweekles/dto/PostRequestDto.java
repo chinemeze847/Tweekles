@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 public class PostRequestDto {
+    @JsonProperty
     private String username;
 
     @Size(max = 500, message = "Character literals should not be more than 500")
