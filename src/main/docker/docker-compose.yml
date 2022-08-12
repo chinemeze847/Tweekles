@@ -20,5 +20,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=compose-postgres
-      - POSTGRES_PASSWORD=compose-postgres
+      - POSTGRES_DB=tweekledb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
