@@ -32,6 +32,4 @@ public class Post {
     @Column(name = "message", length = 500)
     private String message;
 
-    @OneToMany()
-    private List<Comment> comments;
 }

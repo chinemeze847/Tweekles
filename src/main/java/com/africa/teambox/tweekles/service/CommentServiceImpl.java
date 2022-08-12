@@ -10,6 +10,7 @@ import com.africa.teambox.tweekles.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -38,4 +39,16 @@ public class CommentServiceImpl implements CommentService{
 
         return commentRepository.save(comment);
     }
+
+
+    @Override
+    public List<Comment> getAllComment(UUID postId) {
+        return commentRepository.findCommentByPostId(postId);
+    }
+
+
+//    @Override
+//    public Integer getPostCommentCount(String postId) {
+////        return commentRepository.findByCommentId(postId);
+//    }
 }
