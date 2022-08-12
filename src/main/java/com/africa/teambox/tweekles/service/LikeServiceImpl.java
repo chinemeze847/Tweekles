@@ -8,12 +8,8 @@ import com.africa.teambox.tweekles.model.Post;
 import com.africa.teambox.tweekles.repository.LikeRepository;
 import com.africa.teambox.tweekles.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.NotFound;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 
 

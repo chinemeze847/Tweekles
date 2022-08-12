@@ -21,4 +21,10 @@ public class ApplicationHandlerException extends ResponseEntityExceptionHandler 
         return new ResponseEntity<>(error, error.getHttpStatus());
     }
 
+    @ExceptionHandler(MaximumLengthExceededException.class)
+    public ResponseEntity<ApiError> handleBadRequestException(MaximumLengthExceededException e) {
+        ApiError error = new ApiError(HttpStatus.BAD_REQUEST, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getHttpStatus());
+    }
+
 }

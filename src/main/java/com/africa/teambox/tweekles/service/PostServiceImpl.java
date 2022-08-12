@@ -1,6 +1,7 @@
 package com.africa.teambox.tweekles.service;
 
 import com.africa.teambox.tweekles.dto.PostRequestDto;
+import com.africa.teambox.tweekles.exception.MaximumLengthExceededException;
 import com.africa.teambox.tweekles.model.Post;
 import com.africa.teambox.tweekles.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,9 @@ public class PostServiceImpl implements PostService {
    private final PostRepository postRepository;
     @Override
     public Post createPost(PostRequestDto request) {
+        if ((request.getMessage()).length() > 500) {
+            throw new MaximumLengthExceededException("Character literals should not be more than 500");
+        }
         Post post = new Post();
         post.setUsername(request.getUsername());
         post.setMessage(request.getMessage());
