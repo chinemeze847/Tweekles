@@ -10,7 +10,6 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 public class PostRequestDto {
-
     private String username;
 
     private String message;
