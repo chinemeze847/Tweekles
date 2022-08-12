@@ -7,8 +7,12 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/tweekledb
     username: postgres
-    password: postgres123
+    password: postgres
     driverClassName: org.postgresql.Driver
   sql:
     init:
       platform: postgres
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
