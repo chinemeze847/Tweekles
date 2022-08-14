@@ -1,21 +1,6 @@
 version: '2'
 
 services:
-  app:
-    image: 'tweekle:latest'
-    build:
-      context: .
-    container_name: app
-    ports:
-      - "8090:8090"
-    depends_on:
-      - "db"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/tweekledb
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-
   db:
     image: 'postgres:13.1-alpine'
     container_name: db
@@ -25,3 +10,17 @@ services:
       - POSTGRES_DB=tweekledb
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4:4.23
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - 5050:80
+
+
+
