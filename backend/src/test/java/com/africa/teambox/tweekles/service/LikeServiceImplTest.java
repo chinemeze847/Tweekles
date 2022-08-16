@@ -11,26 +11,36 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
-class LikeServiceTest
-{
-    @InjectMocks
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+//@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+class LikeServiceTest {
+//    @InjectMocks
+    @Autowired
     LikeServiceImpl service;
-    @Mock
+    @Autowired
     LikeRepository repository;
 
-    @Mock
+    @Autowired
+    PostServiceImpl postService;
+   @Autowired
     PostRepository postRepository;
 
-    @Mock
     LikeRequestDto likeRequestDto;
     private UUID postId;
     Post post;
@@ -41,35 +51,51 @@ class LikeServiceTest
 
         likeRequestDto = new LikeRequestDto();
         likeRequestDto.setUsername("Eze");
+    }
+
+    @Test
+    void shouldLikePostIfPostIdIsPresent() {
 
         post = new Post();
         post.setUsername("Modupe");
         post.setMessage("A senior backend dev");
-        post.setId(postId);
+        Post savedPost = postRepository.save(post);
+        Integer count1 = service.getPostLikesCount(String.valueOf(savedPost.getId()));
 
         like = new Like();
         like.setUsername("Eze");
-        like.setPost(post);
-    }
+        like.setPost(savedPost);
 
-    @Test
-    void shouldLikePostIfPostIdIsPresent()
-    {
-        when(repository.save(like)).thenReturn(like);
-        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
-        Like actualLike = service.likePost(String.valueOf(postId), likeRequestDto);
+        service.likePost(String.valueOf(savedPost.getId()), likeRequestDto);
+        Integer count2 = service.getPostLikesCount(String.valueOf(savedPost.getId()));
 
-        assertThat(actualLike).isEqualTo(like);
+        assertEquals(count2, count1 + 1);
     }
 
     @Test
     @Disabled
-    void unlikePost() {
+    void shouldUnlikePostIfPostIdIsPresent() {
+
+        Post post1 = new Post();
+        post1.setId(UUID.fromString("16e3e6fb-10ab-4e30-9ed9-bfc2add3aa7f"));
+        post1.setUsername("Mary");
+        post1.setMessage("We are testing stuff");
+
+        Like likes = new Like();
+        likes.setPost(post1);
+        likes.setUsername("Eze");
+        likes.setId(UUID.fromString("16e3e6fb-10ab-4e30-9ed9-bfc2add3af2f"));
+
+        when(repository.findById(likes.getId())).thenReturn(Optional.of(likes));
+        Mockito.doNothing().when(repository).delete(likes);
+        service.unlikePost(String.valueOf(likes.getId()), likeRequestDto);
+        verify(repository).delete(likes);
+
     }
 
     @Test
     @Disabled
-    void getPostLikesCount()
-    {
+    void getPostLikesCount() {
+
     }
 }
