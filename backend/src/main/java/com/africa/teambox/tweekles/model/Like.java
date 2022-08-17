@@ -1,6 +1,7 @@
 package com.africa.teambox.tweekles.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,6 +12,7 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -30,5 +32,4 @@ public class Like {
     @CreationTimestamp
     @Column(name = "timestamp", columnDefinition= "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime timestamp;
-
 }
