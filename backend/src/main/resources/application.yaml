@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/tweekledbtest
     username: postgres
-    password: postgres
+    password: postgres123
     driverClassName: org.postgresql.Driver
   sql:
     init:
