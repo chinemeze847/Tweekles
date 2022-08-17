@@ -3,6 +3,14 @@
 
 
 /*Card*/
+.card-section{
+  border: 1px solid #A9A9A9;
+  max-width: 35%;
+}
+
+.card-username{
+  color: #7F7F7F;
+}
 
 
 /*Input*/
