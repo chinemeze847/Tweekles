@@ -28,3 +28,23 @@
 
 
 /*Input*/
+.form-input {
+    width: 500px;
+    margin: 30px auto;
+}
+
+textarea {
+    border: 2px solid #bfb9b9;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #bfb9b9;
+    font-weight: bold;
+    font-size: 15px;
+}
