@@ -6,16 +6,9 @@ import com.africa.teambox.tweekles.model.Post;
 import com.africa.teambox.tweekles.repository.CommentRepository;
 import com.africa.teambox.tweekles.repository.PostRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import com.africa.teambox.tweekles.dto.LikeRequestDto;
 import com.africa.teambox.tweekles.exception.MaximumLengthExceededException;
 import com.africa.teambox.tweekles.exception.NotFoundException;
-import com.africa.teambox.tweekles.model.Comment;
-import com.africa.teambox.tweekles.model.Post;
-import com.africa.teambox.tweekles.repository.CommentRepository;
 import com.africa.teambox.tweekles.repository.LikeRepository;
-import com.africa.teambox.tweekles.repository.PostRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,15 +29,25 @@ class CommentServiceImplTest {
     CommentRepository commentRepository;
 
     @Autowired
-<<<<<<< HEAD
     CommentServiceImpl service;
 
     CommentRequestDto commentRequestDto;
     Post post;
     Post savedPost;
+    @Autowired
+    LikeRepository likeRepository;
+
+    @Autowired
+    CommentServiceImpl commentService;
+
+    private UUID postId;
 
     @BeforeEach
     void setUp() {
+        commentRepository.deleteAll();
+        likeRepository.deleteAll();
+        postRepository.deleteAll();
+
         commentRequestDto =  new CommentRequestDto();
         commentRequestDto.setComment("This is a random comment");
         commentRequestDto.setUsername("Micheal");
@@ -63,23 +66,6 @@ class CommentServiceImplTest {
         assertThat(comment).extracting("comment", "username")
                 .doesNotContainNull()
                 .containsExactly("This is a random comment", "Micheal");
-=======
-    LikeRepository likeRepository;
-
-    @Autowired
-    CommentServiceImpl commentService;
-
-    Post post;
-
-    private UUID postId;
-    CommentRequestDto commentRequestDto;
-
-    @BeforeEach
-    void setUp() {
-        commentRepository.deleteAll();
-        likeRepository.deleteAll();
-        postRepository.deleteAll();
-
     }
 
     @Test
@@ -109,12 +95,10 @@ class CommentServiceImplTest {
         assertThrows(NotFoundException.class, () -> {
             commentService.addComment(String.valueOf(postId), commentRequestDto);
         });
->>>>>>> 6a51f6626642e5c672ed2cebafe6c17f24f438e0
 
     }
 
     @Test
-<<<<<<< HEAD
     void getAllComment() {
         service.addComment(String.valueOf(savedPost.getId()), commentRequestDto);
 
@@ -124,7 +108,9 @@ class CommentServiceImplTest {
         assertThat(comments).isInstanceOf(Object.class);
         assertThat(comments).extracting("comment", "username")
                 .doesNotContainNull();
-=======
+    }
+
+    @Test
     void shouldThrowMaximumLengthExceededExceptionWhenCommentExceeds500Characters() {
         post = new Post();
         post.setUsername("Modupe");
@@ -139,10 +125,5 @@ class CommentServiceImplTest {
             commentService.addComment(String.valueOf(savedPost.getId()), commentRequestDto);
         });
 
-    }
-
-    @Test
-    void getAllComment() {
->>>>>>> 6a51f6626642e5c672ed2cebafe6c17f24f438e0
     }
 }
