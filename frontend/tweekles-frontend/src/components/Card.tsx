@@ -10,10 +10,12 @@ export const Card = () => {
         <p className='card-message'>I'm currently working on the "Fit for Project" initiative</p>
         <div className='card-comment-like'>
             <div>
-                <FavoriteIcon/>
+            <ChatBubbleIcon className='comment' style={{ color: "yellow"}} />
+            <span>4</span>
             </div>
             <div>
-                <ChatBubbleIcon/>
+            <FavoriteIcon className='like' style={{ color: "red" }} />
+            <span>5</span>
             </div>
         </div>
     </div>

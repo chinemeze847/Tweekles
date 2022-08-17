@@ -6,10 +6,24 @@
 .card-section{
   border: 1px solid #A9A9A9;
   max-width: 35%;
+  padding: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 .card-username{
   color: #7F7F7F;
+}
+
+.card-comment-like{
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.938rem;
+}
+
+.card-comment-like div{
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
 }
 
 
