@@ -5,9 +5,9 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5432/tweekledbtest
+    url: jdbc:postgresql://localhost:5432/tweekledb
     username: postgres
-    password: postgres123
+    password: postgres
     driverClassName: org.postgresql.Driver
   sql:
     init:
