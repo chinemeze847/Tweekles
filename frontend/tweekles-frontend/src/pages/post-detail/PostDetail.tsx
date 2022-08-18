@@ -4,13 +4,14 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import Header from "../../components/Header";
 import { Card } from '../../components/Card';
-import postDetailsModel from '../../api/postDetailsModel';
 import { Input } from '../../components/Input';
 import Button from '../../components/Button';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-type CommentType = {id: string, username: string, comment: string, timestamp: string}
-type PostType = {id: string, username: string, message: string, timestamp: string, post:CommentType}
+
+type dummyType = { id: string, username: string, message: string, timestamp: string }
+type CommentType = { id: string, username: string, comment: string, timestamp: string }
+type PostType = { id: string, username: string, comment: string, timestamp: string, post: dummyType }
 
 export const PostDetail = () => {
   const params = useParams();
@@ -49,68 +50,73 @@ export const PostDetail = () => {
 
   return (
     <main className="container">
-      <Header />
-      <div style={{ border: "1px solid black" }}>
-        <div className='card-section' style={{ border: "none" }}>
-          <p className='card-username'>@{postDetailsModel[0].post.username} <span>{getTimeDifference(postDetailsModel[0].post.timestamp)}</span></p>
-          <p className='card-message'>{postDetailsModel[0].post.message}</p>
-          <div className='card-comment-like'>
-            <div>
-              <ChatBubbleIcon className='comment' style={{ color: "yellow", fontSize: "18px" }} />
-              <span>4</span>
+      {
+        comments.length > 0 && postDetailsModel.length > 0 &&
+        <>
+          <Header />
+          <div style={{ border: "1px solid black" }}>
+            <div className='card-section' style={{ border: "none" }}>
+              <p className='card-username'>@{postDetailsModel[0].post.username} <span>{getTimeDifference(postDetailsModel[0].post.timestamp)}</span></p>
+              <p className='card-message'>{postDetailsModel[0].post.message}</p>
+              <div className='card-comment-like'>
+                <div>
+                  <ChatBubbleIcon className='comment' style={{ color: "yellow", fontSize: "18px" }} />
+                  <span>4</span>
+                </div>
+                <div>
+                  <FavoriteIcon className='like' style={{ color: "red", fontSize: "18px" }} />
+                  <span>5</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <FavoriteIcon className='like' style={{ color: "red", fontSize: "18px" }} />
-              <span>5</span>
+
+            <div style={{ marginTop: "50px" }}>
+              {
+                comments.map((data) => {
+                  return <Card key={data.id} username={data.username} timestamp={data.timestamp} message={data.comment} hideIcon={true} />
+                })
+              }
             </div>
           </div>
-        </div>
-
-        <div style={{ marginTop: "50px" }}>
-          {
-            comments.map((data) => {
-              return <Card key={data.id} username={data.username} timestamp={data.timestamp} message={data.comment} hideIcon={true} />
-            })
-          }
-        </div>
-      </div>
-      <div style={{
-        marginTop: "50px",
-        display: "flex",
-        width: "100%",
-        height: "50px",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-      }}>
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "250px"
-        }}>
-          <Input width={'250px'} height={'50px'} placeholder={'Add your comment'} value={commentInput} onChange={(e) => { setCommentInput(e.target.value) }} />
-          <Button
-            background={'orange'}
-            border={"none"}
-            height={"45px"}
-            radius={"0.313rem"}
-            width={"100px"}
-            color={"#fff"}
-            alignSelf={"end"}
-            children="Save"
-            onClick={() => setComments([...comments, { id: "1", username: "John", comment: commentInput, timestamp: (new Date()).toString() }])} />
-        </div>
-        <Button
-          background={'red'}
-          border={"none"}
-          height={"45px"}
-          radius={"0.313rem"}
-          width={"100px"}
-          color={"#fff"}
-          alignSelf={"end"}
-          children="Like"
-          onClick={() => setComments([...comments, { id: "1", username: "John", comment: commentInput, timestamp: (new Date()).toString() }])} />
-      </div>
+          <div style={{
+            marginTop: "50px",
+            display: "flex",
+            width: "100%",
+            height: "50px",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+          }}>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              width: "250px"
+            }}>
+              <Input width={'250px'} height={'50px'} placeholder={'Add your comment'} value={commentInput} onChange={(e) => { setCommentInput(e.target.value) }} />
+              <Button
+                background={'orange'}
+                border={"none"}
+                height={"45px"}
+                radius={"0.313rem"}
+                width={"100px"}
+                color={"#fff"}
+                alignSelf={"end"}
+                children="Save"
+                onClick={() => setComments([...comments, { id: "1", username: "John", comment: commentInput, timestamp: (new Date()).toString() }])} />
+            </div>
+            <Button
+              background={'red'}
+              border={"none"}
+              height={"45px"}
+              radius={"0.313rem"}
+              width={"100px"}
+              color={"#fff"}
+              alignSelf={"end"}
+              children="Like"
+              onClick={() => setComments([...comments, { id: "1", username: "John", comment: commentInput, timestamp: (new Date()).toString() }])} />
+          </div>
+        </>
+      }
     </main>
   )
 }
