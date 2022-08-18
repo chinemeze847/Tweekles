@@ -23,8 +23,6 @@ export const PostDetail = () => {
     const getPostDetail = async () => {
       try {
         const res = await axios(`http://localhost:8080/api/v1/${params.id}/comments`)
-        console.log(res, params.id);
-
         const comment = res.data.map((data: { id: any; username: any; comment: any; timestamp: any; }) => {
           return {
             id: data.id,
@@ -40,7 +38,7 @@ export const PostDetail = () => {
       }
     }
     getPostDetail();
-  }, [])
+  }, [params.id])
 
   function getTimeDifference(timestamp: string) {
     let interval = new Date().valueOf() - new Date(timestamp).valueOf();
@@ -112,8 +110,7 @@ export const PostDetail = () => {
               width={"100px"}
               color={"#fff"}
               alignSelf={"end"}
-              children="Like"
-              onClick={() => setComments([...comments, { id: "1", username: "John", comment: commentInput, timestamp: (new Date()).toString() }])} />
+              children="Like" />
           </div>
         </>
       }

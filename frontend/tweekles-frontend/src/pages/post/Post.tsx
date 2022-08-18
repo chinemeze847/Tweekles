@@ -6,19 +6,10 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
-import { truncate } from "fs/promises";
 
 const Post = () => {
 
   const [openModal, setOpenModal] = useState(false);
-
-  // const onOpen = ()=>{
-  //   setOpenModal(prevState=>{
-  //     return(
-  //       prevState = true
-  //     )
-  //   })
-  // }
 
   let navigateTo = useNavigate();
   // @ts-ignore

@@ -1,7 +1,6 @@
 import React from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
-import { Link } from 'react-router-dom';
 import '../App.css'
 
 interface Props {
