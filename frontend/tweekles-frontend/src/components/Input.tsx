@@ -1,10 +1,15 @@
 import React from 'react'
 
-export const Input = () => {
+interface inputProps {
+  width:string,
+  height:string,
+  placeholder:string
+}
+
+export const Input = ({width, height, placeholder}:inputProps) => {
   return (
       <form className='form-input' action='' encType='' method='post'>
-        <textarea rows={2} cols={35} placeholder='Add your post'>
-        </textarea>
+        <input style={{width, height}} placeholder={placeholder} type="text"/>
       </form>
   )
 }

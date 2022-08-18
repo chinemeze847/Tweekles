@@ -1,6 +1,7 @@
 .wrapper{
     margin-left: 40px;
     margin-top: 50px;
+    width: 60%;
 }
 
 .header{
@@ -11,4 +12,13 @@
 .box-username{
     border: 1px solid green;
     padding:15px 10px 15px 10px;
+}
+
+.post-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-add-post{
+    align-self: flex-end;
 }

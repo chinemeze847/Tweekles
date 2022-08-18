@@ -8,25 +8,25 @@ export default [
     },
 
     {
-        "id": "210f54bc-42ac-45f1-9514-34ff9e7fbd03",
+        "id": "c1a1fc3b-efea-408e-a4a1-feb79b0f3367",
         "username": "davidadedoyin",
         "timestamp": "2022-08-17T15:30:02.574202194+01:00",
         "message": "This is a new postbdgdhdhdbdbdhdej"
     },
     {
-        "id": "210f54bc-42ac-45f1-9514-34ff9e7fbd03",
+        "id": "210f54bc-42ac-c1a1fc3b-efea-408e-6792",
         "username": "davidadedoyin",
         "timestamp": "2022-08-17T15:30:02.574202194+01:00",
         "message": "This is a new postbdgdhdhdbdbdhdej"
     },
     {
-        "id": "210f54bc-42ac-45f1-9514-34ff9e7fbd03",
+        "id": "42ac-45f1-9514-34ff9e7fbd03",
         "username": "davidadedoyin",
         "timestamp": "2022-08-17T15:30:02.574202194+01:00",
         "message": "This is a new postbdgdhdhdbdbdhdej"
     },
     {
-        "id": "210f54bc-42ac-45f1-9514-34ff9e7fbd03",
+        "id": "210f54bc-42ac-45f1-9514-34f9e7fbd03",
         "username": "davidadedoyin",
         "timestamp": "2022-08-17T15:30:02.574202194+01:00",
         "message": "This is a new postbdgdhdhdbdbdhdej"
