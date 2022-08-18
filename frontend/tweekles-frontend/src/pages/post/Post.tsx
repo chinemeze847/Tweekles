@@ -1,18 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card } from "../../components/Card";
 import model from "../../api/model";
 import "./post.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../components/Modal";
+import { truncate } from "fs/promises";
 
 const Post = () => {
+
+  const [openModal, setOpenModal] = useState(false);
+
+  // const onOpen = ()=>{
+  //   setOpenModal(prevState=>{
+  //     return(
+  //       prevState = true
+  //     )
+  //   })
+  // }
 
   let navigateTo = useNavigate();
   // @ts-ignore
   return (
     <main className="container">
       <Header />
+      {openModal && <Modal setOpenModal={setOpenModal}/>}
       <div className="post-container">
         <div className="wrapper">
           {model.map((data) => {
@@ -29,6 +42,7 @@ const Post = () => {
         </div>
         <div className="button-add-post">
           <Button
+            onClick={()=>setOpenModal(true)}
             border={"none"}
             background={"blue"}
             height={"45px"}
@@ -39,6 +53,7 @@ const Post = () => {
           />
         </div>
       </div>
+      
     </main>
   );
 };

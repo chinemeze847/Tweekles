@@ -4,15 +4,6 @@
     width: 60%;
 }
 
-.header{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.box-username{
-    border: 1px solid green;
-    padding:15px 10px 15px 10px;
-}
 
 .post-container{
     display: flex;

@@ -14,7 +14,7 @@ export const Login = () => {
             height={"45px"}
             radius={"0.313rem"}
             width={"100px"}
-            children={"Add Post"}
+            children={"Login"}
             color={"#fff"}
             />
       </div>
