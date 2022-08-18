@@ -11,9 +11,19 @@
 }
 
 .card-username{
-  color: #7F7F7F;
+    color: #7F7F7F;
+    margin-bottom:0.438rem;
+    font-size: 0.938rem;
 }
 
+.card-username span{
+    margin-left: 1.25rem;
+}
+
+.card-message{
+    margin-bottom: 0.438rem;
+    font-size: 0.938rem;
+}
 .card-comment-like{
   display: flex;
   justify-content: flex-start;

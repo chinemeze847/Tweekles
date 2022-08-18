@@ -10,24 +10,23 @@ interface Props {
   }
 export const Card: React.FC<Props> = ({username, timestamp, message}) => {
 
-    // const hours = (timestamp)=>{
-    //     const interval = Date.now() - timestamp
-        
-    //     return interval.ge
-    // }
-
+    function getTimeDifference(timestamp:string){
+        let interval = new Date().valueOf() - new Date(timestamp).valueOf();
+        let hours = interval / (60*60*1000);
+        return Math.floor(hours) + 'h';
+    }
     
     return (
     <div className='card-section'>
-        <p className='card-username'>@{username} <span>{timestamp}</span></p> 
+        <p className='card-username'>@{username} <span>{getTimeDifference(timestamp)}</span></p>
         <p className='card-message'>{message}</p>
         <div className='card-comment-like'>
             <div>
-            <ChatBubbleIcon className='comment' style={{ color: "yellow"}} />
+            <ChatBubbleIcon className='comment' style={{ color: "yellow", fontSize:"18px"}} />
             <span>4</span>
             </div>
             <div>
-            <FavoriteIcon className='like' style={{ color: "red" }} />
+            <FavoriteIcon className='like' style={{ color: "red", fontSize:"18px"}} />
             <span>5</span>
             </div>
         </div>

@@ -1,7 +1,12 @@
 import React from 'react'
+import './postdetail.css'
+import '../../App.css'
+import Header from "../../components/Header";
 
 export const PostDetail = () => {
   return (
-    <div>PostDetail</div>
+      <main className="container">
+        <Header/>
+      </main>
   )
 }

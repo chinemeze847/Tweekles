@@ -1,0 +1,14 @@
+.wrapper{
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.box-username{
+    border: 1px solid green;
+    padding:15px 10px 15px 10px;
+}
