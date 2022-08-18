@@ -1,0 +1,20 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.box {
+    height: 350px;
+    width: 250px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
