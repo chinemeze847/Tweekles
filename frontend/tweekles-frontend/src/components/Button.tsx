@@ -9,10 +9,11 @@ interface Props {
   radius?: string
   width?: string;
   background:string;
+  alignSelf?:string;
 }
 
 
-const Button: React.FC<Props> = ({ border, color, children, height, onClick, radius, width, background}) => {
+const Button: React.FC<Props> = ({ border, color, children, height, onClick, radius, width, background, alignSelf}) => {
   return (
       <button
           onClick={onClick}
@@ -21,7 +22,9 @@ const Button: React.FC<Props> = ({ border, color, children, height, onClick, rad
             border,
             borderRadius: radius,
             height,
-            width, color
+            width, 
+            color,
+            alignSelf
           }}
       >
         {children}
