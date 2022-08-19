@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
 
+
 const Post = () => {
 
   const [openModal, setOpenModal] = useState(false);
