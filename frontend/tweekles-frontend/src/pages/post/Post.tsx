@@ -7,7 +7,6 @@ import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
 
 type postType = { id: string, username: string, message: string, timestamp: string }
@@ -16,6 +15,7 @@ const Post = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [posts, setPosts] = useState<postType[]>([]);
+  
 
   useEffect(() => {
     const getPosts = async () => {

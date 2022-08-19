@@ -3,17 +3,19 @@ import "./login.css"
 import { Input } from '../../components/Input';
 import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
+import { useUserNameContext } from './loginContext';
+
 
 export const Login = () => {
 
   let navigateTo = useNavigate();
   
-  const [username, setUsername] = useState("");
+  const [usernameInput, setUsernameInput] = useState("");
+  const [, setUsername] = useUserNameContext();
 
   const saveUsername = () => 
   {
-    localStorage.setItem("username",JSON.stringify(username));
+    setUsername(usernameInput);
     navigateTo(`/post/`);
   }
 
@@ -21,7 +23,7 @@ export const Login = () => {
   return (
           <main className='login-container'>
                 <div className= 'box'>
-                  <Input width='unset' height='50px' placeholder='Username' onChange={(e)=>setUsername(e.target.value)}/>
+                  <Input width='unset' height='50px' placeholder='Username' onChange={(e)=>setUsernameInput(e.target.value)}/>
                   <Button
                       border={"none"}
                       background={"blue"}
