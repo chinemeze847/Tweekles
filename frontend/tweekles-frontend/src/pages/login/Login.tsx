@@ -5,7 +5,8 @@ import Button from '../../components/Button';
 
 export const Login = () => {
   return (
-    <div className='login-container'>
+
+    <main className='login-container'>
       <div className= 'box'>
         <Input width='unset' height='50px' placeholder='Username'/>
         <Button
@@ -19,6 +20,6 @@ export const Login = () => {
             />
       </div>
 
-    </div>
+    </main>
   )
 }
