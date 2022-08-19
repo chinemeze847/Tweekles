@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Card } from "../../components/Card";
 import model from "../../api/model";
 import "./post.css";
@@ -6,11 +6,28 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
+
+type postType = { id: string, username: string, message: string, timestamp: string }
 
 const Post = () => {
 
   const [openModal, setOpenModal] = useState(false);
+  const [posts, setPosts] = useState<postType[]>([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const res = await axios(`http://localhost:8080/api/v1/posts`)
+        setPosts(res.data);
+      }catch (error) {
+        console.log(error);
+      }
+  }
+  getPosts()
+  }, [])
 
   let navigateTo = useNavigate();
   // @ts-ignore
@@ -20,7 +37,7 @@ const Post = () => {
       {openModal && <Modal setOpenModal={setOpenModal}/>}
       <div className="post-container">
         <div className="wrapper">
-          {model.map((data) => {
+          {posts.map((data) => {
             return (
               <Card
                 message={data.message}
